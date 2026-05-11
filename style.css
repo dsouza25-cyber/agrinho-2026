@@ -1,0 +1,134 @@
+/* Configurações Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f4f7f4;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Cabeçalho */
+header {
+    width: 100%;
+    background-color: #2e7d32; /* Verde Agro */
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+}
+
+/* Container Principal */
+.container {
+    width: 90%;
+    max-width: 800px;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+h2 {
+    color: #1b5e20;
+    margin-bottom: 20px;
+}
+
+/* Estilização do Menu de Seleção */
+select {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+select:focus {
+    border-color: #2e7d32;
+}
+
+/* O Visualizador do Solo */
+#solo-visual {
+    width: 100%;
+    height: 180px;
+    margin: 20px 0;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: white;
+    text-transform: uppercase;
+    transition: all 0.6s ease;
+    box-shadow: inset 0 -10px 20px rgba(0,0,0,0.2);
+}
+
+.solo-exposto {
+    background: #8d6e63; /* Marrom terra seca */
+    border-bottom: 8px solid #5d4037;
+}
+
+.solo-sustentavel {
+    background: #4caf50; /* Verde plantação */
+    border-bottom: 8px solid #2e7d32;
+    background-image: linear-gradient(45deg, #4caf50 25%, #66bb6a 25%, #66bb6a 50%, #4caf50 50%, #4caf50 75%, #66bb6a 75%, #66bb6a 100%);
+    background-size: 40px 40px; /* Simula uma textura de plantação */
+}
+
+/* Botão */
+button {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #1b5e20;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Resultados */
+.resultado {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 10px;
+    animation: fadeIn 0.8s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#res-titulo {
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}

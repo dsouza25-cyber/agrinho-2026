@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Solo - Agrinho 2026</title>
+    <style>
+        /* CSS - Deixando o site bonito */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f4f0; color: #333; text-align: center; }
+        header { background-color: #2e7d32; color: white; padding: 20px; margin-bottom: 20px; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        
+        /* Estilo do Solo no Simulador */
+        #solo-visual { width: 100%; height: 150px; margin: 20px 0; border-radius: 10px; transition: 0.5s; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; text-shadow: 1px 1px 2px #000; }
+        .solo-exposto { background-color: #8d6e63; border-bottom: 5px solid #5d4037; }
+        .solo-sustentavel { background-color: #4caf50; border-bottom: 5px solid #2e7d32; }
+
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; background-color: #2e7d32; color: white; border: none; border-radius: 5px; }
+        button:hover { background-color: #1b5e20; }
+        .resultado { margin-top: 20px; padding: 15px; border-radius: 5px; display: none; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Simulador de Solo Agrinho 2026</h1>
+    <p>Agro Forte, Futuro Sustentável</p>
+</header>
+
+<div class="container">
+    <h2>Equilíbrio entre Produção e Ambiente</h2>
+    <p>Escolha o tipo de manejo e veja o impacto da chuva:</p>
+
+    <select id="tipoManejo" onchange="atualizarVisual()">
+        <option value="exposto">Solo Exposto (Convencional)</option>
+        <option value="sustentavel">Plantio Direto (Sustentável)</option>
+    </select>
+
+    <div id="solo-visual" class="solo-exposto">SOLO EXPOSTO</div>
+
+    <button onclick="simularChuva()">Simular Chuva</button>
+
+    <div id="resultado" class="resultado">
+        <h3 id="res-titulo"></h3>
+        <p id="res-texto"></p>
+    </div>
+</div>
+
+<script>
+    // JavaScript - A lógica do simulador
+    function atualizarVisual() {
+        const manejo = document.getElementById('tipoManejo').value;
+        const soloDiv = document.getElementById('solo-visual');
+        const resDiv = document.getElementById('resultado');
+        
+        resDiv.style.display = 'none';
+
+        if (manejo === 'sustentavel') {
+            soloDiv.className = 'solo-sustentavel';
+            soloDiv.innerText = 'SOLO COM COBERTURA VEGETAL';
+        } else {
+            soloDiv.className = 'solo-exposto';
+            soloDiv.innerText = 'SOLO EXPOSTO';
+        }
+    }
+
+    function simularChuva() {
+        const manejo = document.getElementById('tipoManejo').value;
+        const resDiv = document.getElementById('resultado');
+        const resTitulo = document.getElementById('res-titulo');
+        const resTexto = document.getElementById('res-texto');
+
+        resDiv.style.display = 'block';
+
+        if (manejo === 'sustentavel') {
+            resDiv.style.backgroundColor = '#e8f5e9';
+            resTitulo.innerText = "✅ Sucesso Sustentável!";
+            resTexto.innerText = "A palhada protegeu o solo. A água infiltrou suavemente, mantendo a umidade e evitando a erosão. Produção garantida para o futuro!";
+        } else {
+            resDiv.style.backgroundColor = '#ffebee';
+            resTitulo.innerText = "⚠️ Alerta de Erosão!";
+            resTexto.innerText = "Sem cobertura, a chuva levou os nutrientes e causou enxurrada. Isso prejudica os rios e diminui a fertilidade da sua fazenda.";
+        }
+    }
+</script>
+
+</body>
+</html>
